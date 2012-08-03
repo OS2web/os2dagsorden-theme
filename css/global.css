@@ -1031,6 +1031,22 @@ table .hide_show_all_attachments_text{
 .annotator-filter .annotator-filter-navigation button {
     width: 40px;
 }
+
+.annotator-editor .annotator-widget .annotator-controls a{
+    background-color: #D4D4D4;
+    border: 1px solid #A2A2A2;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2) inset, 0 0 1px rgba(255, 255, 255, 0.8) inset;
+    color: #363636;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 24px;
+    padding: 0 6px 0 22px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+}
 /* ---------------------------- Annotateit override END---------------------------- */
 
 /* ---------------------------- Breadcrumbs START---------------------------- */
