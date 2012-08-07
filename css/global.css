@@ -449,6 +449,7 @@ div.date-heading h3 a, div.date-heading h3{
     border-bottom-right-radius: 7px;
     box-shadow: 0  0  0  3px #cbcbcb inset;
     padding: 5px 2px 2px 5px;
+    overflow-y: auto;
 }
 
 div.view {
