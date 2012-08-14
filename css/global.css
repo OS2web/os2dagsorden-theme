@@ -1053,7 +1053,7 @@ table .hide_show_all_attachments_text{
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
-.annotator-wrapper {
+a.annotator-wrapper {
     overflow-y: hidden;
 }
 /* ---------------------------- Annotateit override END---------------------------- */
@@ -1063,7 +1063,7 @@ table .hide_show_all_attachments_text{
     padding-bottom: 15px;
 }
 
-.breadcrumb .breadcrumb-active {
+.breadcrumb .breadcrumb-active, .button-active {
     background:linear-gradient(top, #9b9b9b 0%,#e4e4e4 100%);
     background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#9b9b9b), to(#e4e4e4));
     background:-webkit-linear-gradient(top, #9b9b9b, #e4e4e4);
