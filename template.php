@@ -162,3 +162,18 @@ function syddjurs_omega_subtheme_calendar_time_row_heading($vars)
     }
     return array('hour' => $hour, 'ampm' => $ampm);
 }
+
+/**
+ * Changes the format of the exposed form - meetings search.
+ *
+ * @param mixed &$form       form
+ * @param mixed &$form_state form state
+ *
+ * @return none
+ */
+function syddjurs_omega_subtheme_form_alter(&$form, &$form_state) {
+    if ($form['#id'] == 'views-exposed-form-meetings-search-page') {
+	$form['from_date']['value']['#date_format'] = 'd-m-Y';
+        $form['to_date']['value']['#date_format'] = 'd-m-Y';
+    }
+}
