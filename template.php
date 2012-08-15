@@ -165,6 +165,7 @@ function syddjurs_omega_subtheme_calendar_time_row_heading($vars)
 
 /**
  * Changes the format of the exposed form - meetings search.
+ * Also removes the unneeded links on log in page.
  *
  * @param mixed &$form       form
  * @param mixed &$form_state form state
@@ -175,5 +176,9 @@ function syddjurs_omega_subtheme_form_alter(&$form, &$form_state) {
     if ($form['#id'] == 'views-exposed-form-meetings-search-page') {
 	$form['from_date']['value']['#date_format'] = 'd-m-Y';
         $form['to_date']['value']['#date_format'] = 'd-m-Y';
+    } else if ($form['#id'] == 'user-login-form') {
+	$form['name']['#description'] = "";
+	$form['pass']['#description'] = "";
+	$form['links']['#markup'] = "";
     }
 }
