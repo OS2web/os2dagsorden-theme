@@ -1,6 +1,9 @@
 /* This file will hold styles for the mobile version of your website (mobile first). */
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
 #section-header{
+    /* Fallback */
+    background: #e7e7e7 url('../img/img_header_elipse.png') no-repeat bottom left;
+
     /* W3C */
     background:
     url('../img/img_header_elipse.png') no-repeat bottom left,
@@ -35,6 +38,9 @@
 }
 
 body{
+    /* Fallback */
+    background: #e7e7e7 url('../img/img_body_elipse.png') no-repeat top left;     
+
     /* W3C */
     background:
     url('../img/img_body_elipse.png') no-repeat top left,
@@ -194,6 +200,8 @@ div.content ul.menu li {
 }
 
 div.content ul.menu li #menu-oversigt{
+    /* Fallback */
+    background: #c0c0c0 url('../img/icon_overview.png') no-repeat 15px 50%;
     /* W3C */
     background: url('../img/icon_overview.png') no-repeat 15px 50%, linear-gradient(top, #fcfcfc 0%,#c0c0c0 100%);
     /* Safari 4-5, Chrome 1-9 */
@@ -209,6 +217,8 @@ div.content ul.menu li #menu-oversigt{
 }
 
 div.content ul.menu li #menu-oversigt.active{
+    /* Fallback */
+    background: #9b9b9b url('../img/icon_overview.png') no-repeat 15px 50%;
     /* W3C */
     background: url('../img/icon_overview.png') no-repeat 15px 50%, linear-gradient(top, #9b9b9b 0%,#e4e4e4 100%);
     /* Safari 4-5, Chrome 1-9 */
@@ -225,6 +235,8 @@ div.content ul.menu li #menu-oversigt.active{
 
 div.content ul.menu li #menu-print-kalendar{
     /* W3C */
+    background: #c0c0c0 url('../img/icon_print.png') no-repeat 15px 50%;
+    /* W3C */
     background: url('../img/icon_print.png') no-repeat 15px 50%, linear-gradient(top, #fcfcfc 0%,#c0c0c0 100%);
     /* Safari 4-5, Chrome 1-9 */
     background: url('../img/icon_print.png') no-repeat 15px 50%, -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fcfcfc), to(#c0c0c0));
@@ -239,6 +251,8 @@ div.content ul.menu li #menu-print-kalendar{
 }
 
 div.content ul.menu li #menu-print-kalendar.active{
+    /* Fallback */
+    background:#9b9b9b url('../img/icon_print.png') no-repeat 15px 50%;
     /* W3C */
     background:url('../img/icon_print.png') no-repeat 15px 50%,linear-gradient(top, #9b9b9b 0%,#e4e4e4 100%);
     /* Safari 4-5, Chrome 1-9 */
@@ -269,7 +283,9 @@ div.content ul.menu li #menu-sog{
 }
 
 div.content ul.menu li #menu-sog.active{
-    /* fallback */
+    /* Fallback */
+    background:#9b9b9b url('../img/icon_search.png') no-repeat 15px 50%;
+    /* W3C */
     background:url('../img/icon_search.png') no-repeat 15px 50%,linear-gradient(top, #9b9b9b 0%,#e4e4e4 100%);
     /* Safari 4-5, Chrome 1-9 */
     background:url('../img/icon_search.png') no-repeat 15px 50%,-webkit-gradient(linear, 0% 0%, 0% 100%, from(#9b9b9b), to(#e4e4e4));
@@ -284,6 +300,8 @@ div.content ul.menu li #menu-sog.active{
 }
 
 #block-views-exp-meetings-search-page h2{
+    /* Fallback */
+    background:#cbcbcb url('../img/icon_search.png') no-repeat 15px 50%;
     /* W3C */
     background:url('../img/icon_search.png') no-repeat 15px 50%,linear-gradient(top, #f3f3f3 0%,#cbcbcb 100%);
     /* Safari 4-5, Chrome 1-9 */
@@ -391,7 +409,9 @@ ul li.leaf {
 }
 
 .views-field-nothing .user-logout-btn {
-    /* fallback */
+    /* Fallback */
+    background: #c0c0c0 url('../img/icon_log_out.png') no-repeat 5px 50%;
+    /* W3C */
     background: url('../img/icon_log_out.png') no-repeat 5px 50%, linear-gradient(top, #fcfcfc 0%,#c0c0c0 100%);
     /* Safari 4-5, Chrome 1-9 */
     background: url('../img/icon_log_out.png') no-repeat 5px 50%, -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e7e7e7), to(#c0c0c0));
@@ -489,7 +509,9 @@ h2.block-title, h1.title{
     font-weight:100;
     font-size: 20px;
     
-    /* fallback */
+    /* Fallback */
+    background: #cbcbcb;
+    /* W3C */
     background: linear-gradient(top, #f3f3f3 0%,#cbcbcb 100%);
     /* Safari 4-5, Chrome 1-9 */
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f3f3f3), to(#cbcbcb));
@@ -790,7 +812,9 @@ pager li.pager-first, .pager li.pager-previous.first {
 .form-submit, .view .date-nav-wrapper .date-next a,
 .view .date-nav-wrapper .date-prev a, .button, .breadcrumb a, .breadcrumb .breadcrumb-active,
 .pager li a {
-    /* fallback */
+    /* Fallback */
+    background: #c0c0c0;
+    /* W3C */
     background: linear-gradient(top, #fcfcfc 0%,#c0c0c0 100%);
     /* Safari 4-5, Chrome 1-9 */
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fcfcfc), to(#c0c0c0));
@@ -826,6 +850,7 @@ pager li.pager-first, .pager li.pager-previous.first {
 }
 
 .pager li a:hover{
+    background: #c0c0c0;
     background: linear-gradient(top, #fcfcfc 0%,#c0c0c0 100%);
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fcfcfc), to(#c0c0c0));
     background: -webkit-linear-gradient(top, #fcfcfc, #c0c0c0);
@@ -1064,6 +1089,7 @@ a.annotator-wrapper {
 }
 
 .breadcrumb .breadcrumb-active, .button-active {
+    background:#9b9b9b;
     background:linear-gradient(top, #9b9b9b 0%,#e4e4e4 100%);
     background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#9b9b9b), to(#e4e4e4));
     background:-webkit-linear-gradient(top, #9b9b9b, #e4e4e4);
