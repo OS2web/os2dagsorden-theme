@@ -41,12 +41,14 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
         if ($view->name == 'meeting_details' || $view->name == 'speaking_paper') {
             //adding has notes indicator to attachment
             $annotations = os2dagsorden_annotator_get_notes_by_meeting_id(arg(1));
+	    
             $attachment_ids = array();
             foreach ($annotations as $note) {
-                $attachment_ids[] = $note['bilag_id'];
+                $attachment_ids[] = $note->bilag_id;
             }
             $attachment_ids = array_unique($attachment_ids);
             $attachment_ids = implode(",", $attachment_ids);
+
             drupal_add_js('ids = [' . $attachment_ids . ']; bullet_point_attachment_add_notes_indicator(ids)', 'inline');
         }
         if ($view->name == 'speaking_paper') {
