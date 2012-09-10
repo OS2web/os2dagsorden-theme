@@ -1,6 +1,6 @@
 function bullet_point_add_expand_behaviour(){
    jQuery(document).ready(function() {   
-	jQuery(".bullet-point-attachments .view-content .item-list ul").each(function(index) {
+	jQuery(".bullet-point-attachments .view-content .item-list .ul-item-list-dagsordenspunkt").each(function(index) {
 	  jQuery(this).attr("id","attachments_container_"+index);
 	  jQuery(this).hide();
 	  
@@ -23,7 +23,7 @@ function bullet_point_add_expand_behaviour(){
 //is used on Dagsorden details view
 function bullet_point_details_init(){
   jQuery(document).ready(function() {   
-    jQuery(".item-list-dagsordenspunkt ul").each(function(index) {
+    jQuery(".item-list-dagsordenspunkt .ul-item-list-dagsordenspunkt").each(function(index) {
 	attachment_add_expand_all_behaviour(this, index);  
 	attachment_add_expand_behaviour(this, index);
     });
