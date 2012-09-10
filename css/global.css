@@ -126,7 +126,7 @@ body{
 }
 
 .attachment_text_trimmed_container ul li {
-  list-style: circle inside none;
+  list-style: disc inside none;
 }
 
 /* Showing list number in attachment preview */
@@ -135,7 +135,7 @@ body{
 }
 
 .attachment_text_full_container ul li {
-  list-style: circle inside none;
+  list-style: disc inside none;
 }
 
 /* Links in attachment preview */
