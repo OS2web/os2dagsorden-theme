@@ -1091,6 +1091,19 @@ a.annotator-wrapper {
 }
 /* ---------------------------- Annotateit override END---------------------------- */
 
+/* ---------------------------- Bilag preview pdf2htmlEX PDF -> HTML START ---------------------------- */
+.annotator-wrapper #pdf-main {
+  position: relative;
+  background: #BEBEBE;
+}
+
+.attachment_text_container .attachment_text_trimmed_container #pdf-main {
+  position: relative;
+  background: #BEBEBE;
+  overflow: hidden;
+}
+/* ---------------------------- Bilag preview pdf2htmlEX PDF -> HTML START ---------------------------- */
+
 /* ---------------------------- Breadcrumbs START---------------------------- */
 .breadcrumb{
     padding-bottom: 15px;
