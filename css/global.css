@@ -1098,6 +1098,51 @@ a.annotator-wrapper {
 /* ---------------------------- Annotateit override END---------------------------- */
 
 /* ---------------------------- Bilag preview pdf2htmlEX PDF -> HTML START ---------------------------- */
+.annotator-pager {
+    margin-top: 5px;
+    position: relative;
+    width: 100%;
+    margin-bottom: 5px;
+    min-height: 30px;
+}
+
+
+.annotator-pager .page-prev {
+    background: none repeat scroll 0 0 transparent;
+    border-radius: 5px 0 0 5px;
+    font-size: 12px;
+    float: none;
+    left: 10px;
+    top: 0;
+    padding: 0;
+    position: absolute;
+    right: auto;
+    text-align: right;
+    width: auto;
+    z-index: 1;
+}
+
+.annotator-pager .page-next {
+    background: none repeat scroll 0 0 transparent;
+    border-radius: 5px 0 0 5px;
+    font-size: 12px;
+    float: none;
+    right: 10px;
+    top: 0;
+    padding: 0;
+    position: absolute;
+    left: auto;
+    text-align: right;
+    width: auto;
+    z-index: 1;
+}
+
+.annotator-pager .page-prev a, .annotator-pager .page-next a {
+    color: inherit;
+    font-size: 14px;
+    text-decoration: none;
+}
+
 .annotator-wrapper #pdf-main {
   position: relative;
   background: #BEBEBE;
