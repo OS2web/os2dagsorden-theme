@@ -710,7 +710,6 @@ width: 100%;
 .calendar-calendar .day-view .full td.multi-day div.dayview{
     height: auto;
     margin: 0 auto;
-    overflow: visible;
     position: relative;
 }
 
@@ -719,7 +718,6 @@ width: 100%;
 .calendar-calendar .month-view .full tr.multi-day,
 .calendar-calendar .month-view .full tr.multi-day td {
     height: auto;
-/*     max-height: auto; */
 }
 
 
