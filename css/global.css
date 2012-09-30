@@ -547,6 +547,7 @@ h2.block-title, h1.title{
     background: -o-linear-gradient(top, #f3f3f3, #cbcbcb);
     
     padding: 5px 5px 3px 15px;
+	margin-bottom: 0;
     
     border-top:1px solid;
     border-left:1px solid;
