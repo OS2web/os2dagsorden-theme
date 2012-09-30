@@ -1,3 +1,25 @@
+function add_show_hide_menu_behaviour(){
+   jQuery(document).ready(function() {
+       jQuery("#show_hide_menu_button").click(function(){
+ 	    jQuery(".region-sidebar-second-inner").toggle();
+
+	    if (jQuery("#show_hide_menu_button").val() == "⇐"){
+		jQuery("#show_hide_menu_button").val("⇒");
+		jQuery("#region-content").removeClass("grid-18");
+		jQuery("#region-content").addClass("grid-24");
+	    }
+	    else{
+		jQuery("#show_hide_menu_button").val("⇐");
+		jQuery("#region-content").removeClass("grid-24");
+		jQuery("#region-content").addClass("grid-18");
+	    }
+ 	});
+       var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+       if (width < 1000)
+	 jQuery("#show_hide_menu_button").click();
+   });
+}
+
 function bullet_point_add_expand_behaviour(){
    jQuery(document).ready(function() {   
 	jQuery(".bullet-point-attachments .view-content .item-list .ul-item-list-dagsordenspunkt").each(function(index) {

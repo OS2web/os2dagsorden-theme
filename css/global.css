@@ -399,6 +399,7 @@ ul li.leaf {
 .content div.user-logout-block{
     position:absolute;
     right:0;
+    top: -15px;
     padding: 15px 0  5px 5px;
 }
 
@@ -438,6 +439,18 @@ ul li.leaf {
 
 /*---------------------------- User logout End ----------------------------*/
 
+/*---------------------------- Show hide menu Start ----------------------------*/
+.content #show_hide_menu_container{
+    position:absolute;
+    right:0;
+    top: 25px;
+}
+
+.content #show_hide_menu_container #show_hide_menu_button{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+/*---------------------------- Show hide menu End ----------------------------*/
 
 /*---------------------------- Views Start ----------------------------*/
 

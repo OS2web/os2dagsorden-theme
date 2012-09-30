@@ -30,9 +30,10 @@ define('SECURITY_LOGS', 'public://logs');
  */
 function syddjurs_omega_subtheme_preprocess_page(&$variables) 
 {
+    drupal_add_js(drupal_get_path('theme', 'syddjurs_omega_subtheme') . '/js/syddjurs_omega_subtheme.js');
+    drupal_add_js('add_show_hide_menu_behaviour()', 'inline');
     $view = views_get_page_view();
     if (!empty($view)) {
-        drupal_add_js(drupal_get_path('theme', 'syddjurs_omega_subtheme') . '/js/syddjurs_omega_subtheme.js');
         if ($view->name == 'meeting_details') {
             //adding expand/collapse behaviour to meeting details view
             drupal_add_js('bullet_point_add_expand_behaviour()', 'inline');
