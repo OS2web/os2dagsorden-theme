@@ -140,8 +140,7 @@ body{
 
 /* Links in attachment preview */
 table.views-table tr td .attachment_text_trimmed_container a:link, table.views-table tr td .attachment_text_trimmed_container a:visited , 
-table.views-table tr td .attachment_text_full_container a:link, table.views-table tr td .attachment_text_full_container a:visited ,
-.annotator-wrapper a:link, .annotator-wrapper a:visited {
+table.views-table tr td .attachment_text_full_container a:link, table.views-table tr td .attachment_text_full_container a:visited {
   display: inline;
   padding: 5px 5px;
   
@@ -1106,6 +1105,42 @@ a.annotator-wrapper {
 .content #pdf-main {
   position: relative;
   background: #BEBEBE;
+}
+
+.annotator-adder button {
+    height: 75px;
+    width: 75px;
+    margin: -20px 0 0px -10px;
+}
+
+.annotator-wrapper .annotator-editor .annotator-widget .annotator-controls a{
+  padding: 0px 10px 0px 30px;
+  display: inline-block;
+}
+
+
+.annotator-wrapper .annotator-viewer .annotator-controls {
+    right: 0;
+    top: 0;
+    opacity: 0.75;
+}
+
+.annotator-wrapper .annotator-viewer .annotator-controls button, .annotator-wrapper .annotator-viewer .annotator-controls a {
+    border: 10px solid rgba(251, 251, 251, 0.98);
+    height: 35px;
+    opacity: 0.75;
+    padding: 0 0 0 15px;
+    text-indent: 0;
+    width: 85px;
+}
+
+.annotator-wrapper .annotator-viewer div:first-of-type, .annotator-editor .annotator-item:first-child textarea {
+    min-height: 35px;
+}
+
+
+.annotator-wrapper .annotator-touch-viewer .annotator-touch-controls {
+    top: 5px;
 }
 /* ---------------------------- Annotateit override END---------------------------- */
 

@@ -39,18 +39,48 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
             drupal_add_js('bullet_point_add_expand_behaviour()', 'inline');
             $variables['views'] = '';
         }
+        global $user, $base_path;
         if ($view->name == 'meeting_details' || $view->name == 'speaking_paper') {
-            //adding has notes indicator to attachment
+	    //adding has notes indicator to attachment
             $annotations = os2dagsorden_annotator_get_notes_by_meeting_id(arg(1));
 	    
             $attachment_ids = array();
             foreach ($annotations as $note) {
-                $attachment_ids[] = $note->bilag_id;
+               $attachment_ids[] = $note->bilag_id;
             }
             $attachment_ids = array_unique($attachment_ids);
             $attachment_ids = implode(",", $attachment_ids);
 
-            drupal_add_js('ids = [' . $attachment_ids . ']; bullet_point_attachment_add_notes_indicator(ids)', 'inline');
+            //drupal_add_js('ids = [' . $attachment_ids . ']; bullet_point_attachment_add_notes_indicator(ids)', 'inline');
+            
+            //adding annotation 
+	    drupal_add_js(drupal_get_path('module', 'os2dagsorden_annotator') . '/lib/annotator-full.min.js');
+	    drupal_add_js(drupal_get_path('module', 'os2dagsorden_annotator') . '/lib/touch-plugin/annotator.touch.min.js');
+	    drupal_add_js(drupal_get_path('module', 'os2dagsorden_annotator') . '/lib/json2.js');
+	    drupal_add_js(drupal_get_path('module', 'os2dagsorden_annotator') . '/js/os2dagsorden_annotator_secure.js');
+	    drupal_add_js(drupal_get_path('module', 'os2dagsorden_annotator') . '/lib/XPath.js');
+	    drupal_add_css(drupal_get_path('module', 'os2dagsorden_annotator') . '/lib/touch-plugin/annotator.touch.css');
+	    drupal_add_css(drupal_get_path('module', 'os2dagsorden_annotator') . '/lib/annotator-full.min.css');
+	    
+	    $i = 0;
+	    $meeting = node_load(arg(1));
+	    if (isset($meeting->field_ref_bullet_points['und'])) {	
+		foreach ($meeting->field_ref_bullet_points['und'] as $bullet_point) {
+		    $bullet_point = node_load($bullet_point['target_id']);
+		    if (isset($bullet_point->field_ref_attachment['und'])){
+		      foreach($bullet_point->field_ref_attachment['und'] as $attachment_id){
+			$attachment = node_load($attachment_id['target_id']);
+			//if ($i < 4)
+			  drupal_add_js('init_annotator_in_preview("' . $user->name . '","' . $meeting->nid . '","' . $bullet_point->nid . '","' . $attachment->nid . '","' . $base_path . '?q=");', 'inline');
+			//else
+			 //return;
+			
+			//$i++;
+		      }  
+		    }
+		}
+	    }
+	    drupal_add_js('done()', 'inline');
         }
         if ($view->name == 'speaking_paper') {
             //adding expand/collapse behaviour bullet point details view

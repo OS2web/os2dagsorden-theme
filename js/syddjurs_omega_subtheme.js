@@ -1,3 +1,36 @@
+function init_annotator_in_preview(name, meeting_id, bullet_point_id, bilag_id, url){
+	jQuery(document).ready(function() {
+        	"use strict";
+		var class_name = '.bpa-' + bilag_id;
+// 		jQuery(class_name).annotator().annotator('addPlugin', 'Touch', {
+// 			//force: 1,
+// 			//useHighlighter: 1
+// 		});
+		//jQuery(class_name).annotator().annotator('addPlugin', 'Filter');
+		jQuery(class_name).annotator().annotator('addPlugin', 'Store', {
+			// The endpoint of the store on your server.
+			prefix: url,
+			annotationData: {
+				'bilag_id': bilag_id,
+				'bullet_point_id': bullet_point_id,
+				'meeting_id': meeting_id,
+			},
+			loadFromSearch: {
+				'bilag_id': bilag_id,
+				'bullet_point_id': bullet_point_id,
+				'meeting_id': meeting_id,
+			},
+			urls: {
+			  create:  'annotator/create',
+			  read:    'annotator/read/:id',
+			  update:  'annotator/update/:id',
+			  destroy: 'annotator/delete/:id',
+			  search:  'annotator/search'
+			}
+		});	
+	});
+}
+
 function add_show_hide_menu_behaviour(){
    jQuery(document).ready(function() {
        jQuery("#show_hide_menu_button").click(function(){
@@ -16,8 +49,14 @@ function add_show_hide_menu_behaviour(){
  	});
        var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
        if (width < 1000)
-	 jQuery("#show_hide_menu_button").click();
+	 hide_side_menu();
    });
+}
+
+function hide_side_menu(){
+  jQuery(document).ready(function() {
+    	 jQuery("#show_hide_menu_button").click();
+  });
 }
 
 function bullet_point_add_expand_behaviour(){
