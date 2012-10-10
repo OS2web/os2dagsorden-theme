@@ -51,7 +51,7 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
             $attachment_ids = array_unique($attachment_ids);
             $attachment_ids = implode(",", $attachment_ids);
 
-            //drupal_add_js('ids = [' . $attachment_ids . ']; bullet_point_attachment_add_notes_indicator(ids)', 'inline');
+            drupal_add_js('ids = [' . $attachment_ids . ']; bullet_point_attachment_add_notes_indicator(ids)', 'inline');
             
             //adding annotation 
 	    drupal_add_js(drupal_get_path('module', 'os2dagsorden_annotator') . '/lib/annotator-full.min.js');
@@ -70,12 +70,7 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
 		    if (isset($bullet_point->field_ref_attachment['und'])){
 		      foreach($bullet_point->field_ref_attachment['und'] as $attachment_id){
 			$attachment = node_load($attachment_id['target_id']);
-			//if ($i < 4)
-			  drupal_add_js('init_annotator_in_preview("' . $user->name . '","' . $meeting->nid . '","' . $bullet_point->nid . '","' . $attachment->nid . '","' . $base_path . '?q=");', 'inline');
-			//else
-			 //return;
-			
-			//$i++;
+			drupal_add_js('init_annotator_in_preview("' . $user->name . '","' . $meeting->nid . '","' . $bullet_point->nid . '","' . $attachment->nid . '","' . $base_path . '?q=");', 'inline');
 		      }  
 		    }
 		}

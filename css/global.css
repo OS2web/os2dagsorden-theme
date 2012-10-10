@@ -1245,11 +1245,11 @@ span.cke_skin_kama{
 }
 
 .attachment_text_container .attachment_text_trimmed_container{
-  max-height: 200px;
-  max-width: 400px;
-  overflow: hidden;
+/*   max-height: 200px; */
+/*   max-width: 400px; */
+/*   overflow: hidden; */
   position: relative;
-  height: 600px;
+/*   height: 600px; */
 }
 
 .attachment_text_container .attachment_text_full_container, .attachment_text_container .attachment_text_trimmed_container{
