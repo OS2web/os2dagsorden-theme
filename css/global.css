@@ -990,6 +990,7 @@ table.views-table tr td a:hover {
     border-style: solid;
     border-top-width: 1px;
     border-bottom-width: 1px;
+   /* white-space: nowrap;*/
 }
 td, th {
     padding: 0  0  0  0 ;
@@ -1054,7 +1055,7 @@ table ul.links li {
 
 /*meeting details table*/
 table .speaker-paper-link-container{
-    width: 130px;
+    width: 120px;
 }
 
 table .hide_show_button_container{
@@ -1245,12 +1246,10 @@ span.cke_skin_kama{
   border-bottom-right-radius: 4px;
 }
 
-.attachment_text_container .attachment_text_trimmed_container{
-/*   max-height: 200px; */
-/*   max-width: 400px; */
-/*   overflow: hidden; */
+.attachment_text_container .attachment_text_trimmed_container, .attachment_text_container .attachment_full_trimmed_container{
+  max-width: 400px;
   position: relative;
-/*   height: 600px; */
+  overflow-y: hidden;
 }
 
 .attachment_text_container .attachment_text_full_container, .attachment_text_container .attachment_text_trimmed_container{
