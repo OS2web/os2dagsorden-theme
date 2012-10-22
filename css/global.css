@@ -754,7 +754,8 @@ tr td .color_200000 {
 /*---------------------------- Meeting colors END ----------------------------*/
 
 /*---------------------------- Omega globals override START ----------------------------*/
-a:link, a:visited {
+a:link, a:visited,
+.month a:link, .month a:visited {
     color: #790056;
     text-decoration: none;
 }
@@ -1055,8 +1056,8 @@ table ul.links li {
 
 /*meeting details table*/
 table .speaker-paper-link-container{
-    width: 120px;
-    min-width: 120px;
+    width: 130px;
+    min-width: 130px;
 }
 
 table .hide_show_button_container{
