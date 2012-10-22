@@ -832,7 +832,7 @@ pager li.pager-first, .pager li.pager-previous.first {
 
 
 .form-submit, .view .date-nav-wrapper .date-next a,
-.view .date-nav-wrapper .date-prev a, .button, .breadcrumb a, .breadcrumb .breadcrumb-active,
+.view .date-nav-wrapper .date-prev a, .button, #breadcrumb .breadcrumb a, .breadcrumb .breadcrumb-active,
 .pager li a {
     /* Fallback */
     background: #c0c0c0;
