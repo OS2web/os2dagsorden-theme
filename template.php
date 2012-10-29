@@ -1,7 +1,4 @@
 <?php
-
-define('SECURITY_LOGS', 'public://logs');
-
 /**
  * syddjurs_omega_subtheme
  *
@@ -88,7 +85,14 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
             if ($bullet_point->field_bul_point_closed['und'][0]['value'] == 1) {
                 global $user;
                 $full_user = user_load($user->uid);
-                $log = drupal_realpath(SECURITY_LOGS . '/closed_bullet_point_access.log');
+                
+                $security_log_dir = explode('/',$_SERVER['DOCUMENT_ROOT']);
+                array_pop($security_log_dir);
+                $security_log_dir = implode('/', $security_log_dir);
+                $security_log_dir .= '/logs';
+              
+                $log = $security_log_dir . '/closed_bullet_point_access.log';
+                
                 $handle = fopen($log, 'a');
                 $data = '[';
                 $data .= date('d-m-Y H:i:s');
