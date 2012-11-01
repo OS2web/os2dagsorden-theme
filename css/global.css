@@ -172,7 +172,7 @@ table.views-table tr td .attachment_text_full_container a:link, table.views-tabl
 
 /* Speaker paper overflow */
 .view-speaking-paper {
-  overflow-y: auto;
+/*   overflow-y: auto; */
 }
 
 /*---------------------------- Small Fixes End ----------------------------*/
