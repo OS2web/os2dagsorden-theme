@@ -175,6 +175,16 @@ table.views-table tr td .attachment_text_full_container a:link, table.views-tabl
 /*   overflow-y: auto; */
 }
 
+/* Speaker paper create bullet point name dropdown overflow */
+.field-name-field-ref-bullet-point .form-item-field-ref-bullet-point-und #edit-field-ref-bullet-point-und{
+  max-width: 800px;
+}
+.node-speaker_paper-form{
+  overflow: hidden;
+  padding-right: 20px;
+}
+
+
 /*---------------------------- Small Fixes End ----------------------------*/
 
 

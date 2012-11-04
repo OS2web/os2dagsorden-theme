@@ -54,7 +54,7 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
 	    drupal_add_js(drupal_get_path('module', 'os2dagsorden_annotator') . '/lib/annotator-full.min.js');
 	    drupal_add_js(drupal_get_path('module', 'os2dagsorden_annotator') . '/lib/touch-plugin/annotator.touch.min.js');
 	    drupal_add_js(drupal_get_path('module', 'os2dagsorden_annotator') . '/lib/json2.js');
-	    drupal_add_js(drupal_get_path('module', 'os2dagsorden_annotator') . '/js/os2dagsorden_annotator_secure.js');
+	    //drupal_add_js(drupal_get_path('module', 'os2dagsorden_annotator') . '/js/os2dagsorden_annotator_secure.js');
 	    drupal_add_js(drupal_get_path('module', 'os2dagsorden_annotator') . '/lib/XPath.js');
 	    drupal_add_css(drupal_get_path('module', 'os2dagsorden_annotator') . '/lib/touch-plugin/annotator.touch.css');
 	    drupal_add_css(drupal_get_path('module', 'os2dagsorden_annotator') . '/lib/annotator-full.min.css');
@@ -72,7 +72,6 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
 		    }
 		}
 	    }
-	    drupal_add_js('done()', 'inline');
         }
         if ($view->name == 'speaking_paper') {
             //adding expand/collapse behaviour bullet point details view
@@ -235,7 +234,20 @@ function syddjurs_omega_subtheme_preprocess_html(&$vars) {
       ),
       '#weight' => '-99999',
     );
+    
+     $format_detection = array(
+      '#type' => 'html_tag',
+      '#tag' => 'meta',
+      '#attributes' => array(
+	'name' => 'format-detection',
+	'content' =>  'telephone=no',
+      ),
+      '#weight' => '-99999',
+    );
+    
+    //<meta name="format-detection" content="telephone=no">
   
     // Add header meta tag for IE to head
     drupal_add_html_head($meta_ie_render_engine, 'meta_ie_render_engine');
+    drupal_add_html_head($format_detection, 'format-detection');
 }
