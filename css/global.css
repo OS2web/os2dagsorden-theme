@@ -402,6 +402,17 @@ ul li.leaf {
     z-index:1;
 }
 
+.indicator-create-note{
+    position: relative;
+    float:left;
+    background: url('../img/icon_create_note.png') no-repeat 50% top;
+    min-width: 16px;
+    min-height: 16px;
+    width: 16px;
+    height: 16px;
+    padding-right:5px;
+}
+
 /*---------------------------- Indicator Icons End ----------------------------*/
 
 /*---------------------------- User logout Start ----------------------------*/
@@ -1088,6 +1099,17 @@ table .hide_show_all_attachments_text{
     margin-right: -45px;
 }
 
+table .quick-annotate-button{
+  float: right;
+  position: relative;
+  right: -120px;
+  width: 110px;
+}
+
+table td.quick-annotate-container{
+  width: 120px;
+}
+
 /*meeting details table end*/
 /* ---------------------------- Table Styles END---------------------------- */
 
@@ -1103,10 +1125,10 @@ table .hide_show_all_attachments_text{
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.2) inset, 0 0 1px rgba(255, 255, 255, 0.8) inset;
     color: #363636;
     display: inline-block;
-    font-size: 12px;
+/*     font-size: 12px; */
     font-weight: bold;
-    line-height: 24px;
-    padding: 0 6px 0 22px;
+/*     line-height: 24px; */
+/*     padding: 0 6px 0 22px; */
     position: relative;
     text-decoration: none;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
@@ -1128,7 +1150,7 @@ a.annotator-wrapper {
 }
 
 .annotator-wrapper .annotator-editor .annotator-widget .annotator-controls a{
-  padding: 0px 10px 0px 30px;
+/*   padding: 0px 10px 0px 30px; */
   display: inline-block;
 }
 

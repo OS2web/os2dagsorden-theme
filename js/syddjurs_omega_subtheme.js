@@ -1,12 +1,10 @@
 function init_annotator_in_preview(name, meeting_id, bullet_point_id, bilag_id, url){
 	jQuery(document).ready(function() {
-        	"use strict";
+		"use strict";
 		var class_name = '.bpa-' + bilag_id;
-// 		jQuery(class_name).annotator().annotator('addPlugin', 'Touch', {
-// 			//force: 1,
-// 			//useHighlighter: 1
-// 		});
-		//jQuery(class_name).annotator().annotator('addPlugin', 'Filter');
+		jQuery(class_name).annotator().annotator('addPlugin', 'Touch', {
+			force: location.search.indexOf('force') > -1,
+		});
 		jQuery(class_name).annotator().annotator('addPlugin', 'Store', {
 			// The endpoint of the store on your server.
 			prefix: url,
@@ -27,7 +25,7 @@ function init_annotator_in_preview(name, meeting_id, bullet_point_id, bilag_id, 
 			  destroy: 'annotator/delete/:id',
 			  search:  'annotator/search'
 			}
-		});	
+		});
 	});
 }
 
@@ -48,14 +46,19 @@ function add_show_hide_menu_behaviour(){
 	    }
  	});
        var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-       if (width < 1000)
-	 hide_side_menu();
+       
+       if (width < 1000){
+	    hide_side_menu();
+       }
    });
 }
 
 function hide_side_menu(){
   jQuery(document).ready(function() {
-    	 jQuery("#show_hide_menu_button").click();
+	  jQuery(".region-sidebar-second-inner").hide(); 
+	  jQuery("#show_hide_menu_button").val("⇒");
+	  jQuery("#region-content").removeClass("grid-18");
+	  jQuery("#region-content").addClass("grid-24");
   });
 }
 
@@ -142,4 +145,17 @@ function bullet_point_attachment_add_notes_indicator(ids){
 	  }
 	});
    });
+}
+
+function hide_quick_annotate_buttons(){
+   jQuery(document).ready(function() {
+     if (!isTouchDevice()){
+	jQuery(".quick-annotate-button").hide();
+	jQuery(".quick-annotate-container").removeClass("quick-annotate-container");
+     }
+   });  
+}
+
+function isTouchDevice(){
+  return "ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch;
 }
