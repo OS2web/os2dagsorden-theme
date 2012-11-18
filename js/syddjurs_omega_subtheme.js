@@ -1,34 +1,6 @@
-function init_annotator_in_preview(name, meeting_id, bullet_point_id, bilag_id, url){
-	jQuery(document).ready(function() {
-		"use strict";
-		var class_name = '.bpa-' + bilag_id;
-		jQuery(class_name).annotator().annotator('addPlugin', 'Touch', {
-			force: location.search.indexOf('force') > -1,
-		});
-		jQuery(class_name).annotator().annotator('addPlugin', 'Store', {
-			// The endpoint of the store on your server.
-			prefix: url,
-			annotationData: {
-				'bilag_id': bilag_id,
-				'bullet_point_id': bullet_point_id,
-				'meeting_id': meeting_id,
-			},
-			loadFromSearch: {
-				'bilag_id': bilag_id,
-				'bullet_point_id': bullet_point_id,
-				'meeting_id': meeting_id,
-			},
-			urls: {
-			  create:  'annotator/create',
-			  read:    'annotator/read/:id',
-			  update:  'annotator/update/:id',
-			  destroy: 'annotator/delete/:id',
-			  search:  'annotator/search'
-			}
-		});
-	});
-}
-
+/**
+ * Adds the behaviour of showing/hidng the right side panel with menu.
+ */
 function add_show_hide_menu_behaviour(){
    jQuery(document).ready(function() {
        jQuery("#show_hide_menu_button").click(function(){
@@ -53,6 +25,9 @@ function add_show_hide_menu_behaviour(){
    });
 }
 
+/**
+ * A funtion to hide the menu one time, is used on devices with small screen
+ */
 function hide_side_menu(){
   jQuery(document).ready(function() {
 	  jQuery(".region-sidebar-second-inner").hide(); 
@@ -62,7 +37,12 @@ function hide_side_menu(){
   });
 }
 
-function bullet_point_add_expand_behaviour(){
+/**
+ * Adds the expand behaviour to bullet point on meeting or bullet-point view
+ * 
+ * @url is base url, used to send the parameted to attachment_add_expand_behaviour()
+ */
+function bullet_point_add_expand_behaviour(url){
    jQuery(document).ready(function() {   
 	jQuery(".bullet-point-attachments .view-content .item-list .ul-item-list-dagsordenspunkt").each(function(index) {
 	  jQuery(this).attr("id","attachments_container_"+index);
@@ -76,25 +56,34 @@ function bullet_point_add_expand_behaviour(){
 		jQuery("#btn_hide_show_attachments_"+index).val("⇑");
 	    else
 		jQuery("#btn_hide_show_attachments_"+index).val("⇓");
+	    
+	    
  	  });
 	  
 	  attachment_add_expand_all_behaviour(this, index);  
-	  attachment_add_expand_behaviour(this,index);
+	  attachment_add_expand_behaviour(this,index,url);
 	});
    });
 }
 
-//is used on Dagsorden details view
-function bullet_point_details_init(){
+/**
+ * Initiator function to add expand behaviour for bullet point, is used on bullet-point view
+ * 
+ * @url is base url, used to send the parameted to attachment_add_expand_behaviour()
+ */
+function bullet_point_details_init(url){
   jQuery(document).ready(function() {   
     jQuery(".item-list-dagsordenspunkt .ul-item-list-dagsordenspunkt").each(function(index) {
 	attachment_add_expand_all_behaviour(this, index);  
-	attachment_add_expand_behaviour(this, index);
+	attachment_add_expand_behaviour(this, index, url);
     });
   });
 }
 
-
+/**
+ * Add expand all behavious for bullet point - opens all of its children.
+ * 
+ */
 function attachment_add_expand_all_behaviour(bulletPoint, bulletPointIndex){
   jQuery(bulletPoint).prepend("<input type='button' class='button hide_show_all_attachments_text' id='btn_hide_show_all_attachments_text_"+bulletPointIndex+"' value='⇊'></a>");
   jQuery("#btn_hide_show_all_attachments_text_"+bulletPointIndex).click(function(){
@@ -114,15 +103,49 @@ function attachment_add_expand_all_behaviour(bulletPoint, bulletPointIndex){
   });
 }
 
-function attachment_add_expand_behaviour(bulletPoint, bulletPointIndex){
+/**
+ * Adds expand behaviour on a single attachment.
+ * 
+ * Also loads the comment of the attachment via Ajax and adds the annotator to it, if these actions has not been done before
+ */
+function attachment_add_expand_behaviour(bulletPoint, bulletPointIndex, url){
   jQuery(bulletPoint).children("li").children(".attachment_text_container").each(function(index_attachment){
     jQuery(this).attr("id","attachment_text_container_"+bulletPointIndex+"_"+index_attachment);
     jQuery(this).hide();
 
     jQuery(this).parent().prepend("<input type='button' class='button hide_show_attachment_text' id='btn_hide_show_attachment_text_"+bulletPointIndex+"_"+index_attachment+"' value='⇓'></a>");
     jQuery("#btn_hide_show_attachment_text_"+bulletPointIndex+"_"+index_attachment).click(function(){
+      //hide or show the content container
       jQuery("#attachment_text_container_"+bulletPointIndex+"_"+index_attachment).toggle();
       
+      //load the content on first click and add the annotator
+      if (jQuery("#attachment_text_container_"+bulletPointIndex+"_"+index_attachment).children().contents().first().text() == "Vent venligst..."){
+	//get meeting id, bullet-point id and bilag id		
+	classes = jQuery("#attachment_text_container_"+bulletPointIndex+"_"+index_attachment).children().attr('class').split(' ');
+	var cl = jQuery.grep(classes, function(string, i){
+	  return (string.indexOf("bpa-") == 0);
+	});
+	
+	cl_arr = String(cl).split("-");
+	var bilag_id = cl_arr[3];
+	var bullet_point_id = cl_arr[2];
+	var meeting_id = cl_arr[1];
+	
+	//add real content
+	jQuery.get(url + "meeting/" + meeting_id + "/bullet-point/" + bullet_point_id + "/bullet-point-attachment-raw/" + bilag_id, function(html) {
+	  //remove dummy text
+	  jQuery("#attachment_text_container_"+bulletPointIndex+"_"+index_attachment).children().contents().first().remove();
+	  jQuery("#attachment_text_container_"+bulletPointIndex+"_"+index_attachment).children().contents().first().remove();
+	  
+	  jQuery("#attachment_text_container_"+bulletPointIndex+"_"+index_attachment).children().first().append(html);
+	  
+	  //add annotator to it
+	  add_annotator(meeting_id, bullet_point_id, bilag_id, ".bpa-" + meeting_id + "-" + bullet_point_id + "-" + bilag_id,url);
+	});
+	 
+      }
+      
+      //change the arrow button icon
       if (jQuery("#btn_hide_show_attachment_text_"+bulletPointIndex+"_"+index_attachment).val() == "⇓")
 	jQuery("#btn_hide_show_attachment_text_"+bulletPointIndex+"_"+index_attachment).val("⇑");
       else
@@ -133,10 +156,16 @@ function attachment_add_expand_behaviour(bulletPoint, bulletPointIndex){
 	jQuery("#btn_hide_show_all_attachments_text_"+bulletPointIndex).val("⇊");
       else
 	jQuery("#btn_hide_show_all_attachments_text_"+bulletPointIndex).val("⇈");
+      
+      
     });
   });	
 }
 
+/**
+ * Adds notes indicators, to bullet point attachment
+ * 
+ */
 function bullet_point_attachment_add_notes_indicator(ids){
   jQuery(document).ready(function() {
 	jQuery(".indicator-has-no-notes").each(function(){
@@ -147,6 +176,10 @@ function bullet_point_attachment_add_notes_indicator(ids){
    });
 }
 
+/**
+ * Hides quick annotate button is device is not touchable
+ * 
+ */
 function hide_quick_annotate_buttons(){
    jQuery(document).ready(function() {
      if (!isTouchDevice()){
@@ -156,6 +189,10 @@ function hide_quick_annotate_buttons(){
    });  
 }
 
+/**
+ * Checks if device is touchable
+ * 
+ */
 function isTouchDevice(){
   return "ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch;
 }
