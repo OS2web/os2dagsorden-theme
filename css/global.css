@@ -1081,6 +1081,12 @@ table .speaker-paper-link-container{
     min-width: 130px;
 }
 
+/*meeting details table*/
+div.speaker-paper-print{
+    float: right;
+    margin:5px;
+}
+
 table .hide_show_button_container{
     width: 50px;
 }
