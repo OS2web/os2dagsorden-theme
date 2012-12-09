@@ -1081,10 +1081,25 @@ table .speaker-paper-link-container{
     min-width: 130px;
 }
 
-/*meeting details table*/
+/*bullet point details table*/
 div.speaker-paper-print{
     float: right;
-    margin:5px;
+    margin-right: 5px;
+    position: relative;
+    top: -32px;
+}
+
+/*meeting details table*/
+div.speaker-paper-all-print{
+    float: right;
+    margin-right: 5px;
+    position: relative;
+    top: 5px;
+}
+
+.view-display-id-attachment_print_all_speaker_papers{
+    position: absolute;
+    right: 5px;
 }
 
 table .hide_show_button_container{
