@@ -1302,4 +1302,11 @@ span.cke_skin_kama{
   padding: 5px 5px 0  5px;
 }
 
+#cboxLoadedContent{
+  -webkit-overflow-scrolling: touch;
+}
+
+.annotator-touch-editor .annotator-touch-widget {
+    position: absolute;
+}
 /* ---------------------------- Meeting details attachment text START---------------------------- */

@@ -1,4 +1,17 @@
 /**
+ * Fixes the bug when two click are needed to follow link on iPad
+ */
+function singleClickFix(){
+//   jQuery(document).ready(function() {
+//     jQuery("a").live('click touchend', function(e) {
+//       var el = this;
+//       var link = el.attr('href');
+//       window.location = link;
+//     });
+//   });  
+}
+
+/**
  * Adds the behaviour of showing/hidng the right side panel with menu.
  */
 function add_show_hide_menu_behaviour(){
@@ -200,8 +213,8 @@ function bullet_point_attachment_add_notes_indicator(ids){
 function hide_quick_annotate_buttons(){
    jQuery(document).ready(function() {
      if (!isTouchDevice()){
-	jQuery(".quick-annotate-button").hide();
-	jQuery(".quick-annotate-container").removeClass("quick-annotate-container");
+	//jQuery(".quick-annotate-button").hide();
+	//jQuery(".quick-annotate-container").removeClass("quick-annotate-container");
      }
    });  
 }
