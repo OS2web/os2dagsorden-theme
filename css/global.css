@@ -781,6 +781,10 @@ a:link, a:visited,
     text-decoration: none;
 }
 
+a.form-submit, a.button{
+  color: #333333;
+}
+
 p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset {
     margin-bottom: 0 ;
 }
@@ -1302,11 +1306,14 @@ span.cke_skin_kama{
   padding: 5px 5px 0  5px;
 }
 
-#cboxLoadedContent{
-  -webkit-overflow-scrolling: touch;
-}
-
 .annotator-touch-editor .annotator-touch-widget {
     position: absolute;
 }
+
+.close-overlay-bilag-link{
+  position: relative;
+  float: right;
+  top: -35px;
+}
+
 /* ---------------------------- Meeting details attachment text START---------------------------- */
