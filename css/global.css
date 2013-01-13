@@ -413,7 +413,7 @@ ul li.leaf {
     padding-right:5px;
 }
 
-.indicator-empty{
+.indicator-empty, .indicator-has-no-notes{
     position: relative;
     float:left;
     min-width: 16px;
