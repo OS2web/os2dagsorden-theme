@@ -420,6 +420,7 @@ ul li.leaf {
     min-height: 16px;
     width: 16px;
     height: 16px;
+    padding-right:5px;
 }
 
 /*---------------------------- Indicator Icons End ----------------------------*/
