@@ -165,6 +165,11 @@ table.views-table tr td .attachment_text_full_container a:link, table.views-tabl
   text-shadow: 1px 1px #F5F5F5;
 }
 
+/*Kommende møder i mine udvalg and Seneste 8 møder i alle udvalg tables*/
+.views-field-field-title-short{
+  white-space: nowrap;
+}
+
 /* Dagsordenspunkt item-list padding */
 .view-content table tr td .item-list-dagsordenspunkt {
   padding-left: 75px;
@@ -363,7 +368,7 @@ ul li.leaf {
     min-height: 16px;
     width: 16px;
     height: 16px;
-    padding-right:5px;
+    padding-right:2px;
     z-index:1;
 }
 
@@ -375,7 +380,7 @@ ul li.leaf {
     min-height: 16px;
     width: 16px;
     height: 16px;
-    padding-right:5px;
+    padding-right:2px;
     z-index:1;
 }
 
@@ -387,7 +392,7 @@ ul li.leaf {
     min-height: 16px;
     width: 16px;
     height: 16px;
-    padding-right:5px;
+    padding-right:2px;
 }
 
 .indicator-unlocked{
@@ -398,7 +403,7 @@ ul li.leaf {
     min-height: 16px;
     width: 16px;
     height: 16px;
-    padding-right:5px;
+    padding-right:2px;
     z-index:1;
 }
 
@@ -410,7 +415,7 @@ ul li.leaf {
     min-height: 16px;
     width: 16px;
     height: 16px;
-    padding-right:5px;
+    padding-right:2px;
 }
 
 .indicator-empty, .indicator-has-no-notes{
@@ -420,7 +425,7 @@ ul li.leaf {
     min-height: 16px;
     width: 16px;
     height: 16px;
-    padding-right:5px;
+    padding-right:2px;
 }
 
 /*---------------------------- Indicator Icons End ----------------------------*/
