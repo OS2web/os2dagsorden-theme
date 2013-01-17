@@ -85,7 +85,7 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
             //logging access of closed bullet point
             $nid = arg(3);
             $bullet_point = node_load(arg(3));
-            if ($bullet_point->field_bul_point_closed['und'][0]['value'] == 1) {
+            if ($bullet_point->field_bul_point_closed['und'][0]['value'] == 1 || $bullet_point->field_bul_point_personal['und'][0]['value'] == 1) {
                 global $user;
                 $full_user = user_load($user->uid);
                 

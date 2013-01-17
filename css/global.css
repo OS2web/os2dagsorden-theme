@@ -368,7 +368,7 @@ ul li.leaf {
     min-height: 16px;
     width: 16px;
     height: 16px;
-    padding-right:2px;
+    padding:2px 2px 0 2px;
     z-index:1;
 }
 
@@ -380,7 +380,7 @@ ul li.leaf {
     min-height: 16px;
     width: 16px;
     height: 16px;
-    padding-right:2px;
+    padding:2px 2px 0 2px;
     z-index:1;
 }
 
@@ -392,18 +392,30 @@ ul li.leaf {
     min-height: 16px;
     width: 16px;
     height: 16px;
-    padding-right:2px;
+    padding:2px 2px 0 2px;
 }
 
 .indicator-unlocked{
     position: relative;
     float:left;
-    background: url('../img/icon_unlocked.png') no-repeat 50% 50%;
+    background: url('../img/icon_unlocked.png') no-repeat 50% top;
     min-width: 16px;
     min-height: 16px;
     width: 16px;
     height: 16px;
-    padding-right:2px;
+    padding:2px 2px 0 2px;
+    z-index:1;
+}
+
+.indicator-personal{
+    position: relative;
+    float:left;
+    background: url('../img/icon_personal.png') no-repeat 50% top;
+    min-width: 16px;
+    min-height: 16px;
+    width: 16px;
+    height: 16px;
+    padding:2px 2px 0 2px;
     z-index:1;
 }
 
@@ -415,7 +427,7 @@ ul li.leaf {
     min-height: 16px;
     width: 16px;
     height: 16px;
-    padding-right:2px;
+    padding:2px 2px 0 2px;
 }
 
 .indicator-empty, .indicator-has-no-notes{
@@ -425,7 +437,7 @@ ul li.leaf {
     min-height: 16px;
     width: 16px;
     height: 16px;
-    padding-right:2px;
+    padding:2px 2px 0 2px;
 }
 
 /*---------------------------- Indicator Icons End ----------------------------*/
