@@ -12,6 +12,20 @@ function singleClickFix(){
 }
 
 /**
+ *Add the listener to the tabler orientation property. On device rotation side menu is either forces to be closed, or shown
+ */
+function add_tablet_orientation_listener(){
+  jQuery(document).ready(function() {
+      jQuery(window).bind('orientationchange', function(event) {
+	if (Math.abs(window.orientation) != 90) //vertical
+	  hide_side_menu();
+	//else { 
+	//}
+      });
+  });
+}
+
+/**
  * Adds the behaviour of showing/hidng the right side panel with menu.
  */
 function add_show_hide_menu_behaviour(){

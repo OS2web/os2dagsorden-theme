@@ -28,8 +28,9 @@
 function syddjurs_omega_subtheme_preprocess_page(&$variables) 
 {
     drupal_add_js(drupal_get_path('theme', 'syddjurs_omega_subtheme') . '/js/syddjurs_omega_subtheme.js');
-    drupal_add_js('add_show_hide_menu_behaviour()', 'inline');
-    //drupal_add_js('singleClickFix()', 'inline');
+    drupal_add_js('add_show_hide_menu_behaviour();', 'inline');
+    drupal_add_js('add_tablet_orientation_listener();', 'inline');
+    //drupal_add_js('singleClickFix();', 'inline');
     $view = views_get_page_view();
     if (!empty($view)) {
         global $user, $base_path;

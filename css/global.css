@@ -494,6 +494,7 @@ ul li.leaf {
     background: url('../img/icon_log_out.png') no-repeat 5px 50%, -o-linear-gradient(top, #fcfcfc, #c0c0c0);
     
     padding: 5px 10px 5px 30px;
+    white-space:nowrap;
 }
 
 /*---------------------------- User logout End ----------------------------*/
