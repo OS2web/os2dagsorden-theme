@@ -447,8 +447,8 @@ ul li.leaf {
     min-height: 100px;
     width: 200px;
     height: 100px;
-    top: 10px;
-    right: 0px;
+    top: 100px;
+    right: 200px;
     z-index: 1;
 }
 
