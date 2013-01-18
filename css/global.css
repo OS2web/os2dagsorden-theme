@@ -773,34 +773,6 @@ width: 100%;
 
 /*---------------------------- Date override END ----------------------------*/
 
-/*---------------------------- Meeting colors START ----------------------------*/
-
-/*lynglilla*/
-tr td .color_7a008f {
-    color: #7A008F;
-}
-
-/*red*/
-tr td .color_c00000 {
-    color: #c00000;
-}
-
-/*green*/
-tr td .color_00c000 {
-    color: #00c000;
-}
-
-/*blue*/
-tr td .color_0020ff {
-    color: #0020ff;
-}
-
-/*black*/
-tr td .color_200000 {
-    color: #200000;
-}
-/*---------------------------- Meeting colors END ----------------------------*/
-
 /*---------------------------- Omega globals override START ----------------------------*/
 a:link, a:visited,
 .month a:link, .month a:visited {
