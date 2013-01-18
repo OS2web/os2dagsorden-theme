@@ -440,6 +440,18 @@ ul li.leaf {
     padding:2px 2px 0 2px;
 }
 
+.indicator-preview{
+    position: absolute;
+    background: url('../img/img_preview_stamp.png') no-repeat 50% top;
+    min-width: 200px;
+    min-height: 100px;
+    width: 200px;
+    height: 100px;
+    top: 10px;
+    right: 0px;
+    z-index: 1;
+}
+
 /*---------------------------- Indicator Icons End ----------------------------*/
 
 /*---------------------------- User logout Start ----------------------------*/
