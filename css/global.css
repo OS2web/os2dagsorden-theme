@@ -1207,6 +1207,11 @@ a.annotator-wrapper {
 .annotator-wrapper .annotator-touch-viewer .annotator-touch-controls {
     top: 5px;
 }
+
+.annotator-wrapper .annotator-hl {
+    background: none repeat scroll 0 0 rgba(255, 255, 10, 0.6);
+}
+
 /* ---------------------------- Annotateit override END---------------------------- */
 
 /* ---------------------------- Bilag preview pdf2htmlEX PDF -> HTML START ---------------------------- */
