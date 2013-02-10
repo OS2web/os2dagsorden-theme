@@ -240,3 +240,42 @@ function hide_quick_annotate_buttons(){
 function isTouchDevice(){
   return "ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch;
 }
+
+function addPagescroller(){
+  if (isTouchDevice()){
+    jQuery(document).ready(function() {
+	jQuery('.bullet-point-attachments').pageScroller({
+	      navigation: true,
+	      sectionClass: 'views-field-php-4',
+	});	
+	
+	var maxPages = jQuery('.views-field-php-4').size();
+	var page = 0;
+	
+	jQuery('.bullet-point-attachments').prepend('<div id="arrow-controls" class="light right">'
+	+ '<a href="#" class="prev"></a><br/>'
+	+ '<a href="#" class="next"></a>'
+	+ '</div>');
+	
+	// assigns 'next' API command to link
+	jQuery('#arrow-controls .next').bind('click', function(e){
+		e.preventDefault();
+		if (page < maxPages)
+		  page++;
+		console.log(pageScroller.current);
+		//pageScroller.goTo(page);
+		pageScroller.next();
+	});
+
+	// assigns 'previous' API command to link		
+	jQuery('#arrow-controls .prev').bind('click', function(e){
+		e.preventDefault();
+		if (page > 1)
+		  page--;
+		console.log(pageScroller.current);
+		//pageScroller.goTo(page);
+		pageScroller.prev();
+	});
+    }); 
+  }
+}

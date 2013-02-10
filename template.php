@@ -39,8 +39,7 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
             drupal_add_js('bullet_point_add_expand_behaviour("'. $base_path .'?q=")', 'inline');
             $variables['views'] = '';
         }
-        if ($view->name == 'meeting_details' || $view->name == 'speaking_paper') {
-	    
+        if ($view->name == 'meeting_details' || $view->name == 'speaking_paper') {	    
 	    //adding has notes indicator to attachment
             $annotations = os2dagsorden_annotator_get_notes_by_meeting_id(arg(1));
 	    
@@ -61,22 +60,12 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
 	    drupal_add_css(drupal_get_path('module', 'os2dagsorden_annotator') . '/lib/annotator-full.min.css');
 	    drupal_add_css(drupal_get_path('module', 'os2dagsorden_annotator') . '/lib/touch-plugin/annotator.touch.css');
 	    drupal_add_js(drupal_get_path('module', 'os2dagsorden_annotator') . '/js/os2dagsorden_annotator_secure.js');
-	    
-// 	    $i = 0;
-// 	    $meeting = node_load(arg(1));
-// 	    if (isset($meeting->field_ref_bullet_points['und'])) {	
-// 		foreach ($meeting->field_ref_bullet_points['und'] as $bullet_point) {
-// 		    $bullet_point = node_load($bullet_point['target_id']);
-// 		    if (isset($bullet_point->field_ref_attachment['und'])){
-// 		      foreach($bullet_point->field_ref_attachment['und'] as $attachment_id){
-// 			$attachment = node_load($attachment_id['target_id']);
-// 			//drupal_add_js('init_annotator_in_preview("' . $meeting->nid . '","' . $bullet_point->nid . '","' . $attachment->nid . '","' . $base_path . '?q=");', 'inline');
-// 		      }  
-// 		    }
-// 		}
-// 	    }
-	    
 	    drupal_add_js('hide_quick_annotate_buttons()', 'inline');
+	    
+	    //adding pagescroll
+	    drupal_add_css(drupal_get_path('theme', 'syddjurs_omega_subtheme') . '/css/pagescroller.skins.css');	    
+	    drupal_add_js(drupal_get_path('theme', 'syddjurs_omega_subtheme') . '/js/jquery.pagescroller.js');
+	    drupal_add_js('addPagescroller()', 'inline');
         }
         if ($view->name == 'speaking_paper') {
             //adding expand/collapse behaviour bullet point details view
