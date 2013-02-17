@@ -26,10 +26,11 @@
  * @return none
  */
 function syddjurs_omega_subtheme_preprocess_page(&$variables) 
-{
+{    
     drupal_add_js(drupal_get_path('theme', 'syddjurs_omega_subtheme') . '/js/syddjurs_omega_subtheme.js');
     drupal_add_js('add_show_hide_menu_behaviour();', 'inline');
     drupal_add_js('add_tablet_orientation_listener();', 'inline');
+    drupal_add_js('add_indicator_help_text();', 'inline');
     //drupal_add_js('singleClickFix();', 'inline');
     $view = views_get_page_view();
     if (!empty($view)) {
@@ -98,6 +99,10 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
                 fwrite($handle, $data);
             }
         }
+    } else if ($variables['page']['content']['content']['content']['system_main']['content']['#attributes']['class'][1] == 'node-speaker_paper-form'){ 
+      //in "creating speaker paper"
+      //hide extra fields
+      drupal_add_js("jQuery(document).ready(function(){jQuery('.form-item-field-ref-bullet-point-und-0-target-id').hide();});","inline");
     }
 }
 

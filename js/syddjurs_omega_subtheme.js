@@ -12,6 +12,21 @@ function singleClickFix(){
 }
 
 /**
+ * Fixes the bug when two click are needed to follow link on iPad
+ */
+function add_indicator_help_text(){
+  jQuery(document).ready(function() {
+      jQuery('.indicator-has-notes').each(function() {
+	  jQuery(this).attr('title', 'Ikonet er ikke klikbart, men angiver at du har lavet en eller flere noter.');
+      });
+      jQuery('.indicator-has-speaker-paper').each(function() {
+	  jQuery(this).attr('title', 'Ikonet er ikke klikbart, men angiver at du har oprettet et talepapir.');
+      });
+  });
+}
+
+
+/**
  *Add the listener to the tabler orientation property. On device rotation side menu is either forces to be closed, or shown
  */
 function add_tablet_orientation_listener(){
