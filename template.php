@@ -103,6 +103,19 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
       //in "creating speaker paper"
       //hide extra fields
       drupal_add_js("jQuery(document).ready(function(){jQuery('.form-item-field-ref-bullet-point-und-0-target-id').hide();});","inline");
+      
+      //setting breadcrumb
+      $destination = $_GET['destination'];
+      $destination = explode('/', $destination);
+      
+      $breadcrumb[] = l('Hjem', $base_url);
+      $breadcrumb[] .= l('Mødedetaljer', 'meeting/' . $destination[1]);
+      
+      if (isset($destination[3]))//bullet point
+	$breadcrumb[] .= l('Dagsordenspunkt', 'meeting/' . $destination[1] . '/bullet-point/' . $destination[3]);
+	
+      $breadcrumb[] .= '<span class="breadcrumb-active">Opret talepapir</span>';
+      drupal_set_breadcrumb($breadcrumb);
     }
 }
 
