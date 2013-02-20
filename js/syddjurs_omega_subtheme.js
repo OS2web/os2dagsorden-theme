@@ -34,8 +34,6 @@ function add_tablet_orientation_listener(){
       jQuery(window).bind('orientationchange', function(event) {
 	if (Math.abs(window.orientation) != 90) //vertical
 	  hide_side_menu();
-	//else { 
-	//}
       });
   });
 }

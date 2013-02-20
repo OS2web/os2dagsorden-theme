@@ -52,6 +52,8 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
             $attachment_ids = implode(",", $attachment_ids);
 
             drupal_add_js('ids = [' . $attachment_ids . ']; bullet_point_attachment_add_notes_indicator(ids)', 'inline');
+            //reforcing the help text to be added
+            drupal_add_js('add_indicator_help_text();', 'inline');
             
             //adding annotation 
 	    drupal_add_js(drupal_get_path('module', 'os2dagsorden_annotator') . '/lib/annotator-full.min.js');	    
