@@ -927,6 +927,16 @@ pager li.pager-first, .pager li.pager-previous.first {
     margin: 0;
     padding: 0;
 }
+
+.controls-right {
+  float: right;
+  margin: 5px;
+}
+
+.controls-right .next-control {
+  margin-left: 10px;
+}
+
 /*----------------------------Omega globals override END----------------------------*/
 
 /*----------------------------Tabs override start----------------------------*/
