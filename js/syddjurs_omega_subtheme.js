@@ -1,14 +1,12 @@
 /**
- * Fixes the bug when two click are needed to follow link on iPad
+ * Hides print buttons for the iPad
  */
-function singleClickFix(){
-//   jQuery(document).ready(function() {
-//     jQuery("a").live('click touchend', function(e) {
-//       var el = this;
-//       var link = el.attr('href');
-//       window.location = link;
-//     });
-//   });  
+function hide_print_buttons(){
+  jQuery(document).ready(function() {
+     if (isTouchDevice()){
+	jQuery(".print-button").hide();
+     }
+  }); 
 }
 
 /**
