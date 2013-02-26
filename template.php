@@ -39,6 +39,11 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
             //adding expand/collapse behaviour to meeting details view
             drupal_add_js('bullet_point_add_expand_behaviour("'. $base_path .'?q=")', 'inline');
             $variables['views'] = '';
+            
+            //adding pagescroll
+	    drupal_add_css(drupal_get_path('theme', 'syddjurs_omega_subtheme') . '/css/pagescroller.skins.css');	    
+	    drupal_add_js(drupal_get_path('theme', 'syddjurs_omega_subtheme') . '/js/jquery.pagescroller.js');
+	    drupal_add_js('addPagescroller();', 'inline');
         }
         if ($view->name == 'meeting_details' || $view->name == 'speaking_paper') {	    
 	    //adding has notes indicator to attachment
@@ -65,10 +70,6 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
 	    drupal_add_js(drupal_get_path('module', 'os2dagsorden_annotator') . '/js/os2dagsorden_annotator_secure.js');
 	    drupal_add_js('hide_quick_annotate_buttons()', 'inline');
 	    
-	    //adding pagescroll
-	    drupal_add_css(drupal_get_path('theme', 'syddjurs_omega_subtheme') . '/css/pagescroller.skins.css');	    
-	    drupal_add_js(drupal_get_path('theme', 'syddjurs_omega_subtheme') . '/js/jquery.pagescroller.js');
-	    drupal_add_js('addPagescroller()', 'inline');
         }
         if ($view->name == 'speaking_paper') {
             //adding expand/collapse behaviour bullet point details view
