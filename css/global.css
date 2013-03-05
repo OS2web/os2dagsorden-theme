@@ -1040,6 +1040,16 @@ table.views-table tr td a:hover {
     border-bottom-width: 1px;
    /* white-space: nowrap;*/
 }
+
+table.views-table tr td li.bilag a,
+table.views-table tr td li.bilag a:hover {
+    line-height: 20px;
+}
+table.views-table tr td li.bilag .hide_show_attachment_text{
+    padding: 3px 10px;
+}
+
+
 td, th {
     padding: 0  0  0  0 ;
     vertical-align: middle;
