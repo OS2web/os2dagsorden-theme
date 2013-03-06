@@ -1038,12 +1038,13 @@ table.views-table tr td a:hover {
     border-style: solid;
     border-top-width: 1px;
     border-bottom-width: 1px;
-   /* white-space: nowrap;*/
+    white-space: nowrap;
 }
 
 table.views-table tr td li.bilag a,
 table.views-table tr td li.bilag a:hover {
     line-height: 20px;
+    font-weight: normal;
 }
 table.views-table tr td li.bilag .hide_show_attachment_text{
     padding: 3px 10px;
