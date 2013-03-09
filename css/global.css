@@ -1045,6 +1045,7 @@ table.views-table tr td li.bilag a,
 table.views-table tr td li.bilag a:hover {
     line-height: 20px;
     font-weight: normal;
+    padding-left: 35px;
 }
 table.views-table tr td li.bilag .hide_show_attachment_text{
     padding: 3px 10px;
