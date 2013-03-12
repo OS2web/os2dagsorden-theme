@@ -1321,8 +1321,16 @@ a.annotator-wrapper {
 /* ---------------------------- Breadcrumbs END---------------------------- */
 
 /* ---------------------------- CKEditor override START---------------------------- */
-span.cke_skin_kama{
+#speaker-paper-node-form .cke_skin_kama{
   border:0;
+}
+
+.cke_skin_kama .cke_button .cke_button_bold .cke_icon {
+    background: url('../img/icon_bold.png') no-repeat 50% 50%;
+}
+
+.cke_skin_kama .cke_button .cke_button_italic .cke_icon {
+    background: url('../img/icon_italic.png') no-repeat 50% 50%;
 }
 /* ---------------------------- CKEditor override END---------------------------- */
 
