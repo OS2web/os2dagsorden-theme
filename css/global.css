@@ -1396,9 +1396,9 @@ a.annotator-wrapper {
     opacity: 0.7;
 }
 
-/* with default 5% is not good on iPad */
+/* with default 5% right is not good on iPad */
 .bullet-point-attachments #arrow-controls {
-    right: 7%;
+    left: 0;
 }
 
 /* ---------------------------- Pagescroller styles END---------------------------- */
