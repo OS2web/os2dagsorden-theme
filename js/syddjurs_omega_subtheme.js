@@ -81,6 +81,7 @@ function hide_side_menu(){
  * @url is base url, used to send the parameted to attachment_add_expand_behaviour()
  */
 function bullet_point_add_expand_behaviour(url){
+  var pathname = window.location.pathname;
    jQuery(document).ready(function() {   
 	jQuery(".bullet-point-attachments .view-content .item-list .ul-item-list-dagsordenspunkt").each(function(index) {
 	  jQuery(this).attr("id","attachments_container_"+index);
@@ -93,12 +94,12 @@ function bullet_point_add_expand_behaviour(url){
 	    if (jQuery("#btn_hide_show_attachments_"+index).val() == "⇓"){//closed
 		jQuery("#btn_hide_show_attachments_"+index).val("⇑");
 		//saving in local storage
-		window.localStorage.setItem("#attachments_container_"+index, "true");
+		window.localStorage.setItem(pathname + "-attachments_container_"+index, "true");
 	    }
 	    else {//opened
 		jQuery("#btn_hide_show_attachments_"+index).val("⇓");
 		//saving in local storage
-		window.localStorage.setItem("#attachments_container_"+index, "false");
+		window.localStorage.setItem(pathname + "-attachments_container_"+index, "false");
 	    }
  	  });
 	  
@@ -106,7 +107,7 @@ function bullet_point_add_expand_behaviour(url){
 	  attachment_add_expand_behaviour(this,index,url);
 	  
 	  //reading from local storage
-	  if (JSON.parse(window.localStorage.getItem("#attachments_container_"+index)) === true){
+	  if (JSON.parse(window.localStorage.getItem(pathname + "-attachments_container_"+index)) === true){
 	    jQuery("#btn_hide_show_attachments_"+index).click();
 	  }
 	});
@@ -134,13 +135,14 @@ function bullet_point_details_init(url){
  *
  */
 function attachment_add_expand_all_behaviour(bulletPoint, bulletPointIndex, url){
+  var pathname = window.location.pathname;
   jQuery(bulletPoint).prepend("<input type='button' class='button hide_show_all_attachments_text' id='btn_hide_show_all_attachments_text_"+bulletPointIndex+"' value='⇊'></a>");
   
   jQuery("#btn_hide_show_all_attachments_text_"+bulletPointIndex).click(function(){
     if (jQuery("#btn_hide_show_all_attachments_text_"+bulletPointIndex).val() == "⇊"){
 	jQuery("[id^=attachment_text_container_"+bulletPointIndex+"_]").each(function(index_attachment){
 	  //saving in the local storage
-	  window.localStorage.setItem("#attachment_text_container_"+bulletPointIndex+"_"+index_attachment, "true");
+	  window.localStorage.setItem(pathname + "-attachment_text_container_"+bulletPointIndex+"_"+index_attachment, "true");
 	  jQuery(this).show();
 	  
 	  //handle single expand button
@@ -153,7 +155,7 @@ function attachment_add_expand_all_behaviour(bulletPoint, bulletPointIndex, url)
     } else {
       	jQuery("[id^=attachment_text_container_"+bulletPointIndex+"_]").each(function(index_attachment){
 	  //saving in the local storage
-	  window.localStorage.setItem("#attachment_text_container_"+bulletPointIndex+"_"+index_attachment, "false");
+	  window.localStorage.setItem(pathname + "-attachment_text_container_"+bulletPointIndex+"_"+index_attachment, "false");
 	  jQuery(this).hide();
 	  
 	  //handle single expand button
@@ -171,6 +173,7 @@ function attachment_add_expand_all_behaviour(bulletPoint, bulletPointIndex, url)
  * Also calls attachment_load_content
  */
 function attachment_add_expand_behaviour(bulletPoint, bulletPointIndex, url){
+  var pathname = window.location.pathname;
   jQuery(bulletPoint).children("li").children(".attachment_text_container").each(function(index_attachment){
     jQuery(this).attr("id","attachment_text_container_"+bulletPointIndex+"_"+index_attachment);
     jQuery(this).hide();
@@ -186,12 +189,12 @@ function attachment_add_expand_behaviour(bulletPoint, bulletPointIndex, url){
       if (jQuery("#btn_hide_show_attachment_text_"+bulletPointIndex+"_"+index_attachment).val() == "⇓"){//closed
 	jQuery("#btn_hide_show_attachment_text_"+bulletPointIndex+"_"+index_attachment).val("⇑");
 	//saving in local storage
-	window.localStorage.setItem("#attachment_text_container_"+bulletPointIndex+"_"+index_attachment, "true");
+	window.localStorage.setItem(pathname + "-attachment_text_container_"+bulletPointIndex+"_"+index_attachment, "true");
       }
       else {//opened
 	jQuery("#btn_hide_show_attachment_text_"+bulletPointIndex+"_"+index_attachment).val("⇓");
 	//saving in local storage
-	window.localStorage.setItem("#attachment_text_container_"+bulletPointIndex+"_"+index_attachment, "false");
+	window.localStorage.setItem(pathname + "-attachment_text_container_"+bulletPointIndex+"_"+index_attachment, "false");
       }
       
       //handle expand all
@@ -202,7 +205,7 @@ function attachment_add_expand_behaviour(bulletPoint, bulletPointIndex, url){
     });
     
     //reading from local storage
-    if (JSON.parse(window.localStorage.getItem("#attachment_text_container_"+bulletPointIndex+"_"+index_attachment)) === true){
+    if (JSON.parse(window.localStorage.getItem(pathname + "-attachment_text_container_"+bulletPointIndex+"_"+index_attachment)) === true){
       jQuery("#btn_hide_show_attachment_text_"+bulletPointIndex+"_"+index_attachment).click();
     }
   });	
