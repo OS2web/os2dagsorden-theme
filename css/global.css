@@ -322,7 +322,7 @@ div.content ul.menu li #menu-sog.active{
     background:url('../img/icon_search.png') no-repeat 15px 50%,-o-linear-gradient(top, #9b9b9b, #e4e4e4);
 }
 
-#block-views-exp-meetings-search-page h2{
+#block-views-exp-meetings-search-page h2, #os2dagsorden-search-form h2{
     /* Fallback */
     background:#cbcbcb url('../img/icon_search.png') no-repeat 15px 50%;
     /* W3C */
@@ -547,7 +547,7 @@ div.date-heading h3 a, div.date-heading h3{
 #user-login-form,
 #speaker-paper-node-form,
 .node,
-.view-display-id-page  {
+.view-display-id-page{
     border-left: 1px solid;
     border-right: 1px solid;
     border-bottom: 1px solid;
@@ -752,7 +752,9 @@ width: 100%;
 }
 
 /*removing description of Date fields in Sog block*/
-.form-item-from-date-value-date .description, .form-item-to-date-value-date .description{
+.form-item-from-date-value-date .description, .form-item-to-date-value-date .description, 
+.form-item-from-date-date .description, .form-item-to-date-date .description,
+.form-item-to-date-date label, .form-item-from-date-date label{
     display:none;
 }
 
@@ -930,7 +932,12 @@ pager li.pager-first, .pager li.pager-previous.first {
 
 .controls-right {
   float: right;
-  margin: 5px;
+  margin: 7px;
+}
+
+.controls-left {
+  float: left;
+  margin: 7px;
 }
 
 .controls-right .next-control {
@@ -1483,3 +1490,25 @@ a.annotator-wrapper {
 }
 
 /* ---------------------------- Manual create agenda END---------------------------- */
+
+/* ---------------------------- Search block START---------------------------- */
+#os2dagsorden-search-form #edit-committee{
+  width: 225px;
+}
+
+#os2dagsorden-search-form label{
+  font-weight: bold;
+}
+
+#os2dagsorden-search-form .form-item-from-date, #os2dagsorden-search-form .form-item-to-date{
+  border: none;
+}
+
+#os2dagsorden-search-form #edit-from-date, #os2dagsorden-search-form #edit-to-date{
+  padding: 0;
+}
+
+#os2dagsorden-search-form .form-item-committee{
+  margin-top: 0;
+}
+/* ---------------------------- Search block END---------------------------- */
