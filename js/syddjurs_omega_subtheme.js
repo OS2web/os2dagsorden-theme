@@ -88,7 +88,7 @@ function bullet_point_add_expand_behaviour(url){
 	  jQuery(this).hide();
 	  
 	  jQuery(this).parent().parent().parent().children(".hide_show_button_container").append("<input type='button' class='button' id='btn_hide_show_attachments_"+index+"' value='⇓'></a>");
-	  jQuery("#btn_hide_show_attachments_"+index).click(function(){
+	  jQuery("#btn_hide_show_attachments_"+index).click(function(){	    
  	    jQuery("#attachments_container_"+index).toggle();
 	    
 	    if (jQuery("#btn_hide_show_attachments_"+index).val() == "⇓"){//closed
