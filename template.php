@@ -32,9 +32,14 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
     drupal_add_js('add_tablet_orientation_listener();', 'inline');
     drupal_add_js('add_indicator_help_text();', 'inline');
     drupal_add_js('hide_print_buttons();', 'inline');
+
+    if (!os2dagsorden_access_helper_show_byradet_menu()){
+     drupal_add_js('hide_byradet_menu();', 'inline');
+    }
+    
     $view = views_get_page_view();
     if (!empty($view)) {
-        global $user, $base_path;
+	global $user, $base_path;	
         if ($view->name == 'meeting_details') {
             //adding expand/collapse behaviour to meeting details view
             drupal_add_js('bullet_point_add_expand_behaviour("'. $base_path .'?q=")', 'inline');
@@ -45,7 +50,7 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
 	    drupal_add_js(drupal_get_path('theme', 'syddjurs_omega_subtheme') . '/js/jquery.pagescroller.js');
 	    drupal_add_js('addPagescroller();', 'inline');
         }
-        if ($view->name == 'meeting_details' || $view->name == 'speaking_paper') {	    
+        if ($view->name == 'meeting_details' || $view->name == 'speaking_paper') {
 	    //adding has notes indicator to attachment
             $annotations = os2dagsorden_annotator_get_notes_by_meeting_id(arg(1));
 	    
@@ -71,7 +76,6 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
 	    drupal_add_css(drupal_get_path('module', 'os2dagsorden_annotator') . '/lib/touch-plugin/annotator.touch.css');
 	    drupal_add_js(drupal_get_path('module', 'os2dagsorden_annotator') . '/js/os2dagsorden_annotator_secure.js');
 	    drupal_add_js('hide_quick_annotate_buttons()', 'inline');
-	    
         }
         if ($view->name == 'speaking_paper') {
             //adding expand/collapse behaviour bullet point details view
@@ -81,10 +85,9 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
             //logging access of closed bullet point
             $nid = arg(3);
             $bullet_point = node_load(arg(3));
-            if ($bullet_point->field_bul_point_closed['und'][0]['value'] == 1 || $bullet_point->field_bul_point_personal['und'][0]['value'] == 1) {
-                global $user;
-                $full_user = user_load($user->uid);
-                
+            if ($bullet_point->field_bul_point_closed['und'][0]['value'] == 1 || $bullet_point->field_bul_point_personal['und'][0]['value'] == 1) {                
+		$user = user_load($user->uid);
+		
                 $security_log_dir = explode('/',$_SERVER['DOCUMENT_ROOT']);
                 array_pop($security_log_dir);
                 $security_log_dir = implode('/', $security_log_dir);
@@ -96,7 +99,7 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
                 $data = '[';
                 $data .= date('d-m-Y H:i:s');
                 $data .= ']';
-                $data .= ' ' . $full_user->name . ' [ID: ' . $full_user->field_user_id['und'][0]['value'] . ']';
+                $data .= ' ' . $user->name . ' [ID: ' . $user->field_user_id['und'][0]['value'] . ']';
                 $data .= ' [IP: ' . os2dagsorden_access_helper_get_client_ip() . ' ]';
                 $data .= ' accessed closed bullet point [' . $bullet_point->title . ']';
                 $data .= ' url: [' . $_SERVER['REQUEST_URI'] . ']';

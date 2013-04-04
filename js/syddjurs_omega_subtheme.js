@@ -317,3 +317,9 @@ function addPagescroller(){
     }); 
   }
 }
+
+function hide_byradet_menu(){
+  jQuery(document).ready(function() {
+      jQuery("#menu-byradet").parent().hide();
+  });  
+}
