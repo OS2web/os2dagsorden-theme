@@ -259,19 +259,6 @@ function bullet_point_attachment_add_notes_indicator(ids){
 }
 
 /**
- * Hides quick annotate button is device is not touchable
- * 
- */
-function hide_quick_annotate_buttons(){
-   jQuery(document).ready(function() {
-     if (!isTouchDevice()){
-	jQuery(".quick-annotate-button").hide();
-	jQuery(".quick-annotate-container").removeClass("quick-annotate-container");
-     }
-   });  
-}
-
-/**
  * Checks if device is touchable
  * 
  */

@@ -257,6 +257,40 @@ div.content ul.menu li a.active{
 }
 
 /* specific for each link */
+div.content ul.menu li #menu-byradet{
+    /* Fallback */
+    background: #c0c0c0 url('../img/icon_byradet.png') no-repeat 15px 50%;
+    /* W3C */
+    background: url('../img/icon_byradet.png') no-repeat 15px 50%, linear-gradient(top, #fcfcfc 0%,#c0c0c0 100%);
+    /* Safari 4-5, Chrome 1-9 */
+    background: url('../img/icon_byradet.png') no-repeat 15px 50%, -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e7e7e7), to(#c0c0c0));
+    /* Safari 5.1, Chrome 10+ */
+    background: url('../img/icon_byradet.png') no-repeat 15px 50%, -webkit-linear-gradient(top, #fcfcfc, #c0c0c0);
+    /* Firefox 3.6+ */
+    background: url('../img/icon_byradet.png') no-repeat 15px 50%, -moz-linear-gradient(top, #fcfcfc, #c0c0c0);
+    /* IE 10 */
+    background: url('../img/icon_byradet.png') no-repeat 15px 50%, -ms-linear-gradient(top, #fcfcfc, #c0c0c0);
+    /* Opera 11.10+ */
+    background: url('../img/icon_byradet.png') no-repeat 15px 50%, -o-linear-gradient(top, #fcfcfc, #c0c0c0);
+}
+
+div.content ul.menu li #menu-byradet.active{
+    /* Fallback */
+    background: #9b9b9b url('../img/icon_byradet.png') no-repeat 15px 50%;
+    /* W3C */
+    background: url('../img/icon_byradet.png') no-repeat 15px 50%, linear-gradient(top, #9b9b9b 0%,#e4e4e4 100%);
+    /* Safari 4-5, Chrome 1-9 */
+    background: url('../img/icon_byradet.png') no-repeat 15px 50%, -webkit-gradient(linear, 0% 0%, 0% 100%, from(#9b9b9b), to(#e4e4e4));
+    /* Safari 5.1, Chrome 10+ */
+    background: url('../img/icon_byradet.png') no-repeat 15px 50%, -webkit-linear-gradient(top, #9b9b9b, #e4e4e4);
+    /* Firefox 3.6+ */
+    background: url('../img/icon_byradet.png') no-repeat 15px 50%, -moz-linear-gradient(top, #9b9b9b, #e4e4e4);
+    /* IE 10 */
+    background: url('../img/icon_byradet.png') no-repeat 15px 50%,-ms-linear-gradient(top, #9b9b9b, #e4e4e4);
+    /* Opera 11.10+ */
+    background: url('../img/icon_byradet.png') no-repeat 15px 50%,-o-linear-gradient(top, #9b9b9b, #e4e4e4);
+}
+
 div.content ul.menu li #menu-home{
     /* Fallback */
     background: #c0c0c0 url('../img/icon_home.png') no-repeat 15px 50%;
@@ -1198,17 +1232,6 @@ table .hide_show_all_attachments_text{
     float:left;
     left: -75px;
     margin-right: -45px;
-}
-
-table .quick-annotate-button{
-  float: right;
-  position: relative;
-  right: -120px;
-  width: 110px;
-}
-
-table td.quick-annotate-container{
-  width: 120px;
 }
 
 /*meeting details table end*/
