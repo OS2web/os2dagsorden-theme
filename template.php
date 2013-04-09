@@ -105,6 +105,9 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
                 $data .= PHP_EOL;
                 fwrite($handle, $data);
             }
+            if ($view->name == 'meetings-search') {
+	      print_r('here');
+            }
         }
     } else if ($variables['page']['content']['content']['content']['system_main']['content']['#attributes']['class'][1] == 'node-speaker_paper-form'){ 
       //in "creating speaker paper"
@@ -223,9 +226,29 @@ function syddjurs_omega_subtheme_calendar_time_row_heading($vars)
  * @return none
  */
 function syddjurs_omega_subtheme_form_alter(&$form, &$form_state) {
-    if ($form['#id'] == 'views-exposed-form-meetings-search-page') {
+    if ($form['#id'] == 'views-exposed-form-meetings-search-page') {	
 	$form['from_date']['value']['#date_format'] = 'd-m-Y';
         $form['to_date']['value']['#date_format'] = 'd-m-Y';
+        
+        if (!is_array($_SESSION['views']['meetings_search']['page']['from_date']['value'])){
+	  if (!empty($_SESSION['views']['meetings_search']['page']['from_date']['value'])){
+	    $old_value = $_SESSION['views']['meetings_search']['page']['from_date']['value'];
+	    $_SESSION['views']['meetings_search']['page']['from_date']['value'] = array();
+	    $old_value = date_create_from_format("Y-m-d", $old_value);
+	    $old_value = $old_value->format('d-m-Y');
+	    $_SESSION['views']['meetings_search']['page']['from_date']['value']['date'] = $old_value;
+	  }
+	}
+	
+	if (!is_array($_SESSION['views']['meetings_search']['page']['to_date']['value'])){
+	  if (!empty($_SESSION['views']['meetings_search']['page']['to_date']['value'])){
+	    $old_value = $_SESSION['views']['meetings_search']['page']['to_date']['value'];
+	    $_SESSION['views']['meetings_search']['page']['to_date']['value'] = array();
+	    $old_value = date_create_from_format("Y-m-d", $old_value);
+	    $old_value = $old_value->format('d-m-Y');
+	    $_SESSION['views']['meetings_search']['page']['to_date']['value']['date'] = $old_value;
+	  }
+	}
     } else if ($form['#id'] == 'user-login-form') {
 	$form['name']['#description'] = "";
 	$form['pass']['#description'] = "";
@@ -269,4 +292,10 @@ function syddjurs_omega_subtheme_preprocess_html(&$vars) {
     // Add header meta tag for IE to head
     drupal_add_html_head($meta_ie_render_engine, 'meta_ie_render_engine');
     drupal_add_html_head($format_detection, 'format-detection');
+}
+
+function syddjurs_omega_subtheme_preprocess_block(&$variables) {
+  if (strcmp($variables['block']->delta,"-exp-meetings_search-page") == 0){
+    
+  }
 }
