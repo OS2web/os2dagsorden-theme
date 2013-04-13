@@ -294,8 +294,11 @@ function syddjurs_omega_subtheme_preprocess_html(&$vars) {
     drupal_add_html_head($format_detection, 'format-detection');
 }
 
-function syddjurs_omega_subtheme_preprocess_block(&$variables) {
-  if (strcmp($variables['block']->delta,"-exp-meetings_search-page") == 0){
-    
-  }
+function syddjurs_omega_subtheme_menu_local_task($variables) {
+  $link = $variables['element']['#link'];
+
+  if (($link['path'] === 'node/%/edit' || $link['path'] === 'node/%/view'))//disabling view and edit tabs
+    return '';
+  else 
+    return theme_menu_local_task($variables);
 }
