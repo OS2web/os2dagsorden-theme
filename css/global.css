@@ -872,6 +872,10 @@ p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset {
     margin-bottom: 0 ;
 }
 
+li{
+    margin-left: 40px;
+}
+
 .pager {
     -moz-border-bottom-colors: none;
     -moz-border-image: none;
