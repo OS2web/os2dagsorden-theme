@@ -1013,8 +1013,8 @@ pager li.pager-first, .pager li.pager-previous.first {
   margin: 7px;
 }
 
-.controls-right .next-control {
-  margin-left: 10px;
+.controls-right a {
+  margin-left: 5px;
 }
 
 /*----------------------------Omega globals override END----------------------------*/
