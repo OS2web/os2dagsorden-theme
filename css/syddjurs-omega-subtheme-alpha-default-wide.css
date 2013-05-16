@@ -1,5 +1,4 @@
 /* This file will hold styles that are loaded using the same media query as the wide grid. */
-.attachment_text_container .attachment_text_trimmed_container, .attachment_text_container .attachment_text_full_container .Section1{
-  max-width: 650px;
+.attachment_text_container .attachment_text_trimmed_container, .attachment_text_container .attachment_text_full_container{
   overflow: hidden;
 }
