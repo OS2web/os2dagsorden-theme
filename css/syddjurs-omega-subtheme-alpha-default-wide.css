@@ -2,3 +2,7 @@
 .attachment_text_container .attachment_text_trimmed_container, .attachment_text_container .attachment_text_full_container{
   max-width: 650px;
 }
+
+.attachment_text_container .attachment_text_trimmed_container table, .attachment_text_container .attachment_text_full_container table{
+  max-width: 650px;
+}
