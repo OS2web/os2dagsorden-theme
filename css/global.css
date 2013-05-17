@@ -1414,12 +1414,16 @@ a.annotator-wrapper {
 }
 
 .attachment_text_container .attachment_text_trimmed_container, .attachment_text_container .attachment_full_trimmed_container{
-  max-width: 400px;
+  max-width: 500px;
   position: relative;
 }
 
-.attachment_text_container .attachment_text_trimmed_container table, .attachment_text_container .attachment_full_trimmed_container table{
-  max-width: 400px;
+.attachment_text_container .attachment_text_trimmed_container table, .attachment_text_container .attachment_text_full_container table{
+  max-width: 500px;
+}
+
+.attachment_text_container .attachment_text_trimmed_container *, .attachment_text_container .attachment_text_full_container *{
+  overflow:hidden;
 }
 
 .attachment_text_container .attachment_text_full_container, .attachment_text_container .attachment_text_trimmed_container{
