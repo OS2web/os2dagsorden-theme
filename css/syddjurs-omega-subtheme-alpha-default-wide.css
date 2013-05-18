@@ -3,6 +3,7 @@
   max-width: 650px;
 }
 
-.attachment_text_container .attachment_text_trimmed_container table, .attachment_text_container .attachment_text_full_container table{
-  max-width: 650px;
+.attachment_text_container .attachment_text_full_container *{
+  overflow:hidden;
+  max-width: 650px !important;
 }
