@@ -1303,6 +1303,45 @@ a.annotator-wrapper {
     background: none repeat scroll 0 0 rgba(255, 255, 10, 0.6);
 }
 
+/* if touch plugin is enabled on desktop*/
+.annotator-touch-editor .annotator-touch-widget {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -150px;
+}
+
+.annotator-touch-editor .annotator-touch-widget {
+    width: 600px;
+}
+
+.annotator-touch-controls .annotator-button {
+    line-height: 36px;
+}
+.annotator-touch-widget{
+  border: none;
+  border-radius: 5px;
+}
+
+.annotator-touch-widget.annotator-touch-controls{
+  background: none;
+}
+.annotator-touch-widget.annotator-touch-controls .annotator-touch-widget-inner{
+  box-shadow: none;
+}
+.annotator-widget, .annotator-touch-widget-inner {
+  margin: 0;
+/*   border: 1px solid; */
+  border-color: #b9b9b9 #b9b9b9 #BBBBBB;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.annotator-touch-widget-inner{
+  border-radius: 5px;
+}
+
 /* ---------------------------- Annotateit override END---------------------------- */
 
 /* ---------------------------- Bilag preview pdf2htmlEX PDF -> HTML START ---------------------------- */
@@ -1425,10 +1464,6 @@ a.annotator-wrapper {
 
 .attachment_text_container .attachment_text_full_container, .attachment_text_container .attachment_text_trimmed_container{
   padding: 5px 5px 0  5px;
-}
-
-.annotator-touch-editor .annotator-touch-widget {
-    position: absolute;
 }
 
 .close-overlay-bilag-link{
