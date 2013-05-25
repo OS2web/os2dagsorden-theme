@@ -240,6 +240,10 @@ function attachment_load_content(bulletPointIndex, index_attachment, url){
 	
 	//add annotator to it
 	add_annotator(meeting_id, bullet_point_id, bilag_id, ".bpa-" + meeting_id + "-" + bullet_point_id + "-" + bilag_id,url, false);
+	
+	//add preview stamp picture, if is actual bilag
+	if (jQuery(".bpa-" + meeting_id + "-" + bullet_point_id + "-" + bilag_id).hasClass("attachment_text_trimmed_container"))
+	  jQuery(".bpa-" + meeting_id + "-" + bullet_point_id + "-" + bilag_id).prepend('<div class="indicator-preview"></div>');
       });
     }
 }
