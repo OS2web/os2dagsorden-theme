@@ -39,7 +39,7 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
     
     $view = views_get_page_view();
     if (!empty($view)) {
-	global $user, $base_path;	
+	global $base_path;	
         if ($view->name == 'meeting_details') {
             //adding expand/collapse behaviour to meeting details view
             drupal_add_js('bullet_point_add_expand_behaviour("'. $base_path .'?q=")', 'inline');
@@ -85,7 +85,7 @@ function syddjurs_omega_subtheme_preprocess_page(&$variables)
             $nid = arg(3);
             $bullet_point = node_load(arg(3));
             if ($bullet_point->field_bul_point_closed['und'][0]['value'] == 1 || $bullet_point->field_bul_point_personal['und'][0]['value'] == 1) {                
-		$user = user_load($user->uid);
+		$user = os2dagsorden_access_helper_get_user();
 		
                 $security_log_dir = explode('/',$_SERVER['DOCUMENT_ROOT']);
                 array_pop($security_log_dir);
@@ -297,7 +297,9 @@ function syddjurs_omega_subtheme_preprocess_html(&$vars) {
 function syddjurs_omega_subtheme_menu_local_task($variables) {
   $link = $variables['element']['#link'];
 
-  if (($link['path'] === 'node/%/edit' || $link['path'] === 'node/%/view'))//disabling view and edit tabs
+  if ($link['path'] === 'node/%/edit' || $link['path'] === 'node/%/view')//disabling view and edit tabs
+    return '';
+  else if ($link['path'] === 'user/%/edit' || $link['path'] === 'user/%/view' || $link['path'] === 'user/%/simple_edit')
     return '';
   else 
     return theme_menu_local_task($variables);
