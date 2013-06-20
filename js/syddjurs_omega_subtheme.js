@@ -6,7 +6,7 @@ function hide_print_buttons(){
      if (isTouchDevice()){
 	jQuery(".print-button").hide();
      }
-  }); 
+  });
 }
 
 /**
@@ -42,37 +42,54 @@ function add_tablet_orientation_listener(){
 function add_show_hide_menu_behaviour(){
    jQuery(document).ready(function() {
        jQuery("#show_hide_menu_button").click(function(){
- 	    jQuery(".region-sidebar-second-inner").toggle();
-
-	    if (jQuery("#show_hide_menu_button").val() == "⇐"){
-		jQuery("#show_hide_menu_button").val("⇒");
-		jQuery("#region-content").removeClass("grid-18");
-		jQuery("#region-content").addClass("grid-24");
-	    }
-	    else{
-		jQuery("#show_hide_menu_button").val("⇐");
-		jQuery("#region-content").removeClass("grid-24");
-		jQuery("#region-content").addClass("grid-18");
-	    }
+	  if (jQuery("#show_hide_menu_button").val() == "⇐")
+	      hide_side_menu();
+	  else
+	      show_side_menu();
  	});
        var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
        
-       if (width < 1000){
-	    hide_side_menu();
-       }
+       if (width < 1000)
+	  hide_side_menu();
    });
 }
 
+function resize_listener(){
+    function decide_menu_visible() {
+	  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+	  if (width < 1000)
+	    hide_side_menu();
+	  else 
+	    show_side_menu();
+    };
+    
+    var resizeTimer;
+    jQuery(window).resize(function() {
+	clearTimeout(resizeTimer);
+	resizeTimer = setTimeout(decide_menu_visible, 100);
+    });
+}
+
 /**
- * A funtion to hide the menu one time, is used on devices with small screen
+ * A funtion to hide the menu
  */
 function hide_side_menu(){
   jQuery(document).ready(function() {
-	  jQuery(".region-sidebar-second-inner").hide(); 
-	  jQuery("#show_hide_menu_button").val("⇒");
-	  jQuery("#region-content").removeClass("grid-18");
-	  jQuery("#region-content").addClass("grid-24");
+	jQuery(".region-sidebar-second-inner").hide(); 
+	jQuery("#show_hide_menu_button").val("⇒");
+	jQuery("#region-content").removeClass("grid-18");
+	jQuery("#region-content").addClass("grid-24");
   });
+}
+
+/**
+ * A funtion show hide the menu
+ */
+function show_side_menu(){
+	jQuery(".region-sidebar-second-inner").show(); 
+	jQuery("#show_hide_menu_button").val("⇐");
+	jQuery("#region-content").removeClass("grid-24");
+	jQuery("#region-content").addClass("grid-18");
 }
 
 /**
@@ -311,8 +328,8 @@ function addPagescroller(){
   }
 }
 
-function hide_byradet_menu(){
+function hide_budget_menu(){
   jQuery(document).ready(function() {
-      jQuery("#menu-byradet").parent().hide();
+      jQuery("#menu-budget").parent().hide();
   });  
 }
