@@ -189,6 +189,13 @@ table.views-table tr td .attachment_text_full_container a:link, table.views-tabl
   padding-right: 20px;
 }
 
+/* Improved multile select*/
+.improvedselect input.improvedselect_filter {
+    height: 25px;
+    padding: 0;
+    width: 100%;
+}
+
 
 /*---------------------------- Small Fixes End ----------------------------*/
 
@@ -1614,7 +1621,3 @@ a.annotator-wrapper {
   margin-top: 0;
 }
 /* ---------------------------- Search block END---------------------------- */
-
-.bullet-point-attachments{
-  overflow: hidden;
-}
