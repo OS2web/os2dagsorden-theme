@@ -297,8 +297,12 @@ function syddjurs_omega_subtheme_preprocess_html(&$vars) {
 
 function syddjurs_omega_subtheme_menu_local_task($variables) {
   $link = $variables['element']['#link'];
-
-  if ($link['path'] === 'node/%/edit' || $link['path'] === 'node/%/view')//disabling view and edit tabs
+  $href = explode('/', $link['href']);
+  $node = node_load($href[1]);
+  
+  if ($link['path'] === 'node/%/edit' && $node->type !== 'page')//disabling edit tab, if only node type is not page
+    return '';
+  else if ($link['path'] === 'node/%/view')//disabling view tab
     return '';
   else if ($link['path'] === 'user/%/edit' || $link['path'] === 'user/%/view' || $link['path'] === 'user/%/simple_edit')
     return '';
