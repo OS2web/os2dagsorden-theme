@@ -7,3 +7,11 @@
   overflow: hidden;
   max-width: 650px;
 }
+
+/*---------------------------- Date override START ----------------------------*/
+
+div.date-heading h3 a, div.date-heading h3 {
+  font-size: 22px;
+}
+
+/*---------------------------- Date override END ----------------------------*/
